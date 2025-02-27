@@ -52,7 +52,7 @@ This repository contains API test cases written using Playwright and TypeScript.
 
    **1.Clone the repository**
   
-      git clone https://github.com/your-username/playwrightautomationtests-ui-api.git
+      git clone https://github.com/Arpita16/playwrightautomationtests-ui-api.git
       cd playwrightautomation-tests-ui-api
 
    **2.Install dependencies**
@@ -136,6 +136,31 @@ This repository contains API test cases written using Playwright and TypeScript.
              test.afterAll(async () => {
                   await page.close();
                  });
+              });
+
+
+### 📌  API Test Scripts
+  **Example** :tests/api-testcases.spec.ts
+
+               const validateResponse = async (response: APIResponse, expectedStatus: number, expectedBodyKeys: string[] = []) => {
+               expect(response.status()).toBe(expectedStatus);
+               expect(response.headers()['content-type']).toContain('application/json');
+               const body = await response.json();
+              for (const key of expectedBodyKeys) {
+                   expect(body).toHaveProperty(key);
+                }
+              return body;
+             };
+
+                test(' Successful login with valid credentials', async () => {
+                         const response = await apiContext.post(BASE_URL, {
+                         data: { email: 'eve.holt@reqres.in', password: 'cityslicka' },
+                      });
+
+              const body = await validateResponse(response, 200, ['token']);
+              console.log(' Login token:', body.token);
+              expect(body).toHaveProperty('token');
+              expect(typeof body.token).toBe('string');
               });
 
 ### 🛠 Running Tests
