@@ -35,7 +35,7 @@ test.describe("Parabank Savings Account Transactions Validation", () => {
     });
 
 
- test.afterAll(async ({ page }) => {
+ test.afterEach(async ({ page }) => {
         await page.close();
     });
 });

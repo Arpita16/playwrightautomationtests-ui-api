@@ -2,6 +2,7 @@ import { Locator, Page, expect } from "@playwright/test";
 
 
 
+
 export class AccountsOverviewPage {
 
     private table:Locator;

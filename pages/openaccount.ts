@@ -30,8 +30,7 @@ constructor(public page: Page){
          
         await this.page.waitForSelector(`//div[@id='openAccountResult']//p//a[@id='newAccountId']`,{state:"visible"});
         const accountNumber= await this.page.locator(`//div[@id='openAccountResult']//p//a[@id='newAccountId']`).textContent();
-        console.log(accountNumber);
-
+      
             const accountData = {
                  accountNumber: accountNumber
             };
