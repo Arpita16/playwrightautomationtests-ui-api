@@ -6,14 +6,14 @@ const BASE_URL = 'https://reqres.in/api/users/2';
 
 test.describe('User Details - Comprehensive Validations', () => {
 
-  test.beforeAll(async ({ playwright }) => {
+  test.beforeAll(async () => {
     apiContext = await request.newContext();
-    console.log('✅ API context initialized');
+    console.log('API context initialized');
   });
 
   test.afterAll(async () => {
     await apiContext.dispose();
-    console.log('🧹 API context disposed');
+    console.log(' API context disposed');
   });
   
 
@@ -39,13 +39,21 @@ const validateUserData = (data: any) => {
   console.log("Done user data validation")
 };
 
+ const validateSupportData = (support: any) => {
+  expect(support.url, 'Support URL should be a valid URL').toMatch(/^https?:\/\/.+/);
+  expect(support.text, 'Support text should be a non-empty string').toBeTruthy();
+};
+
 test("GET/Verify details of a specific user", async ({ request }) => {
     const response = await apiContext.get(BASE_URL);
     const body = await response.json();
     console.log(body)
-    const resp=await validateBasicResponse(response);
-    const userData=validateUserData(body.data);
+    await validateBasicResponse(response);
+    validateUserData(body.data);
+    validateSupportData(body.support);
 
+
+    
 });
 });
 

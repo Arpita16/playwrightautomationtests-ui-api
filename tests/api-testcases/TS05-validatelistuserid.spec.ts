@@ -10,12 +10,12 @@ test.describe('Page User data with User ID API- Comprehensive Validations', () =
     apiContext = await request.newContext({
           baseURL: 'https://reqres.in/',
         })
-    console.log('✅ API context initialized');
+    console.log(' API context initialized');
   });
 
   test.afterAll(async () => {
     await apiContext.dispose();
-    console.log('🧹 API context disposed');
+    console.log(' API context disposed');
   })
   test.beforeEach(async () => {
     console.log('Starting a new test...');

@@ -1,0 +1,14 @@
+{
+    "FirstName":"John",
+    "LastName": "Doe",
+    "Address": "1234 Elm Street",
+    "City": "Springfield",
+    "State": "IL",
+    "ZipCode": "62701",
+    "PhoneNumber": "555-1234",
+    "SSN": "123-45-6789",
+    "Username": "johndoe3",
+    "Password": "test1234",
+    "Confirm": "test1234"
+  }
+  

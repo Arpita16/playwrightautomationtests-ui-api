@@ -8,12 +8,12 @@ test.describe('Page User data & unique User ID API- Comprehensive Validations', 
     apiContext = await request.newContext({
           baseURL: 'https://reqres.in/',
         })
-    console.log('✅ API context initialized');
+    console.log(' API context initialized');
   });
 
   test.afterAll(async () => {
     await apiContext.dispose();
-    console.log('🧹 API context disposed');
+    console.log(' API context disposed');
   })
   test.beforeEach(async () => {
     console.log('Starting a new test...');
@@ -40,6 +40,9 @@ async function validateUserFields(user: any) {
     expect(user).toHaveProperty('avatar');
 
 }
+function getUserIds(data) {
+  return data.data.map(user => user.id);
+}
 
 
 
@@ -63,10 +66,11 @@ test('Validate list user data, data count,no duplicate users', async ({  }) => {
 
     //Ensuring that no id from the user list on page 1 appears in the user list from page 2
     
-    const page2UserIds = page2Data.data.map(user => user.id);
-    console.log(page2UserIds)
-    const page1UserIds =page1Data.data.map(user => user.id);
-    console.log(page1UserIds)
+    const page1UserIds = getUserIds(page1Data);
+    const page2UserIds = getUserIds(page2Data);
+
+    console.log('Page 1 User IDs:', page1UserIds);
+    console.log('Page 2 User IDs:', page2UserIds);
 
     expect(page1UserIds).not.toEqual(page2UserIds)
 
