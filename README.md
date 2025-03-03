@@ -1,12 +1,13 @@
 # playwrightautomationtests-ui-api
 
 
-## Playwright Testing Project with TypeScript and Page Object Model (POM)
+## Playwright Testing Project with TypeScript using Page Object Model (POM)
 
 ### 📌 Overview
 
 This repository contains an automated testing framework using Playwright with TypeScript, following the Page Object Model (POM) design pattern. It enables efficient test automation for web applications with better maintainability and scalability.
 This repository contains API test cases written using Playwright and TypeScript. These tests validate REST API endpoints by sending requests and verifying responses.  
+
 
 ### 🛠️ Tech Stack
 
@@ -14,7 +15,7 @@ This repository contains API test cases written using Playwright and TypeScript.
 
 - TypeScript ⌨️ (Strongly typed JavaScript)
 
-- Jest/Test Runner 🧪 (Test execution)
+- Test Runner 🧪 (Test execution)
 
 - Page Object Model (POM) 📄 (Design pattern for better test structure)
 
@@ -57,12 +58,15 @@ This repository contains API test cases written using Playwright and TypeScript.
 
    **2.Install dependencies**
 
-       npx playwright install
+       npx playwright install  
 
    **3.Install Playwright browsers**
 
         npx playwright install
 
+    **3.Verify Playwright Installtion**
+
+         npx playwright doctor
 
   ### 📌  Page Object Model (POM) Implementation 
   The Page Object Model (POM) helps in organizing locators and actions for different pages.
@@ -105,7 +109,7 @@ This repository contains API test cases written using Playwright and TypeScript.
 ### 🧪 Writing Tests
   Tests are written using Playwright Test Runner.
 
- **Example**: tests/login.spec.ts
+ **Example**: tests/ui-testcases/login.spec.ts
 
      import {  test} from '@playwright/test';
      import { LoginPage } from '../../pages/loginpage';
@@ -140,7 +144,7 @@ This repository contains API test cases written using Playwright and TypeScript.
 
 
 ### 📌  API Test Scripts
-  **Example** :tests/api-testcases.spec.ts
+  **Example** :tests/api-testcases/reqreslogin.spec.ts
 
                const validateResponse = async (response: APIResponse, expectedStatus: number, expectedBodyKeys: string[] = []) => {
                expect(response.status()).toBe(expectedStatus);
@@ -165,9 +169,9 @@ This repository contains API test cases written using Playwright and TypeScript.
 
 ### 🛠 Running Tests
 
-- Run all tests
+- Run tests only in Chromium through CLI
               
-               npx playwright test
+               npx playwright test --project=chromium
 
 - Run tests in headed mode (with UI)
       
@@ -175,7 +179,7 @@ This repository contains API test cases written using Playwright and TypeScript.
 
 - Run tests with a specific file
 
-   npx playwright test tests/loginpage.spec.ts
+         npx playwright test tests/ui-testcases/login.spec.ts
 
 ### 📊 Test Reporting
 
