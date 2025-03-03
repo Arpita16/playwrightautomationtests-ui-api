@@ -181,6 +181,8 @@ This repository contains API test cases written using Playwright and TypeScript.
 
          npx playwright test tests/ui-testcases/login.spec.ts
 
+***Note*** -All the test cases need to run acccording to the testcase number as the functionality of one test case is dependent on other testcase. 
+
 ### 📊 Test Reporting
 
 - The framework generates an HTML report in    playwright-report/.
