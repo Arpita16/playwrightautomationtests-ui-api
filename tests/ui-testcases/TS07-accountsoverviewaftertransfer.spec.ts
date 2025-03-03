@@ -5,12 +5,18 @@ import userData from "../../utils/userData.json"
 import savingsAccountJson from "../../utils/savingsAccount.json";
 
 test.describe("Parabank Savings Account Transactions Validation", () => {
+    let page:any;
     let loginPage: LoginPage;
     let accountsOverviewPage: AccountsOverviewPage;
     
-
-    test.beforeEach(async ({ page }) => {
+    test.beforeAll(async ({ browser }) => {
+        const context = await browser.newContext();
+        page = await context.newPage();
         loginPage = new LoginPage(page);
+    
+    });
+    test.beforeEach(async () => {
+        
         accountsOverviewPage = new AccountsOverviewPage(page);
 
         await loginPage.navigateToLoginPage();
@@ -33,9 +39,8 @@ test.describe("Parabank Savings Account Transactions Validation", () => {
         await accountsOverviewPage.validateTransactionDetails("25");
         expect(isFound).toBeTruthy();
     });
-
-
- test.afterEach(async ({ page }) => {
+    
+    test.afterAll(async () => {
         await page.close();
     });
 });
