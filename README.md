@@ -6,8 +6,40 @@
 ### 📌 Overview
 
 This repository contains an automated testing framework using Playwright with TypeScript, following the Page Object Model (POM) design pattern. It enables efficient test automation for web applications with better maintainability and scalability.
+
+***This Project includes UI Testing of ParaBank Demo Website:***
+
+1.Navigate to https://parabank.parasoft.com/parabank/index.htm?ConnType=JDBC and validation
+
+2.Successful registration using user details from feature file and logout
+
+3.Login and capture checking account details
+
+4.After successful login update user information and validation
+
+5.Using same user login and create an savings account,capture saving account details
+
+6.In account overview page validate account created successfully
+
+7.In Transfer funds,create two transfer from savings to checking account
+
+8.In Account Overview,Validate transactions details with additional validation
+
 This repository contains API test cases written using Playwright and TypeScript. These tests validate REST API endpoints by sending requests and verifying responses.  
 
+***This project includes API testing of https://reqres.in/***
+
+1.Use /api/login for successful and unsuccessful login
+
+2.Validate /api/users/2 endpoint returns details of a specific user.
+
+3.Verify /api/users endpoint by creating a user by sending a POST request with name and job fields.
+
+4.Validate pagination handling and the integrity of data across pages using /api/users?page=2
+
+5.Chained requests for user list and specific user
+
+6.Validate pagination and user consistency across pages using /api/users?page=1 and /api/users?page=2
 
 ### 🛠️ Tech Stack
 
