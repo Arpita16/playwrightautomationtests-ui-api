@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
 import { LoginPage } from "../../pages/loginpage";
 import { AccountsOverviewPage } from "../../pages/accountsoverview";
-import userDataJson from "../../utils/userData.json"
-import savingsAccountJson from "../../utils/savingsAccount.json"
+import userData from "../../utils/userData.json"
+import savingsAccount from "../../utils/savingsAccount.json"
 
 
 test.describe("Parabank Account Validation", () => {
@@ -21,18 +21,18 @@ test.describe("Parabank Account Validation", () => {
         accountsOverviewPage = new AccountsOverviewPage(page);
 
         await loginPage.navigateToLoginPage();
-        await loginPage.login(userDataJson);
+        await loginPage.login(userData);
         await loginPage.validateLoginSuccess();
     });
 
     test("Navigate to Accounts Overview and Validate Account", async () => {
         await accountsOverviewPage.navigateToAccountsOverview();
-        await accountsOverviewPage.selectAccount(savingsAccountJson.accountNumber);
-        await accountsOverviewPage.validateAccountDetails(savingsAccountJson.accountNumber);
+        await accountsOverviewPage.selectAccount(savingsAccount.accountNumber);
+        await accountsOverviewPage.validateAccountDetails(savingsAccount.accountNumber);
                
     });
 
-    test.afterEach(async () => {
+    test.afterAll(async () => {
         await page.close();
         await context.close();
     });

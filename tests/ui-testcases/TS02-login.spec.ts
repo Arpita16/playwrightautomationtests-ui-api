@@ -1,6 +1,6 @@
 import {  test} from '@playwright/test';
 import { LoginPage } from '../../pages/loginpage';
-import userDataJson from "../../utils/userData.json"
+import userData from "../../utils/userData.json"
 import { AccountsOverviewPage } from '../../pages/accountsoverview';
 
 
@@ -21,7 +21,7 @@ test.describe('User Login', () => {
     test('User can login', async () => {
           
         await loginPage.navigateToLoginPage();
-        await loginPage.login(userDataJson);
+        await loginPage.login(userData);
         await loginPage.validateLoginSuccess();
         await accountOverviewPage.navigateToAccountsOverview();
         await loginPage.captureCheckingAccountNumber();

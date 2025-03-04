@@ -2,7 +2,7 @@ import { test,expect } from "@playwright/test";
 import { LoginPage } from "../../pages/loginpage";
 import { AccountsOverviewPage } from "../../pages/accountsoverview";
 import userData from "../../utils/userData.json"
-import savingsAccountJson from "../../utils/savingsAccount.json";
+import savingsAccount from "../../utils/savingsAccount.json";
 
 test.describe("Parabank Savings Account Transactions Validation", () => {
     let page:any;
@@ -27,8 +27,8 @@ test.describe("Parabank Savings Account Transactions Validation", () => {
 
     test("Verify transactions in Savings Account", async () => {
         await accountsOverviewPage.navigateToAccountsOverview();
-        await accountsOverviewPage.selectAccount(savingsAccountJson.accountNumber);
-        await accountsOverviewPage.validateAccountDetailsAfterTransfer(savingsAccountJson.accountNumber);
+        await accountsOverviewPage.selectAccount(savingsAccount.accountNumber);
+        await accountsOverviewPage.validateAccountDetailsAfterTransfer(savingsAccount.accountNumber);
 
         await accountsOverviewPage.transactionCount();
 

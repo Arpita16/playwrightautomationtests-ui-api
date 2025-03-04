@@ -1,7 +1,7 @@
 import { test } from "@playwright/test";
 import { LoginPage } from "../../pages/loginpage";
 import { OpenAccountPage } from "../../pages/openaccount";
-import userDataJson from "../../utils/userData.json"
+import userData from "../../utils/userData.json"
 import { AccountsOverviewPage } from '../../pages/accountsoverview';
 
 test.describe("Parabank Account Tests", () => {
@@ -23,7 +23,7 @@ test.describe("Parabank Account Tests", () => {
 
     test("Login and Open a New Savings Account", async () => {
         await loginPage.navigateToLoginPage();
-        await loginPage.login(userDataJson);
+        await loginPage.login(userData);
         await loginPage.validateLoginSuccess();
        
 

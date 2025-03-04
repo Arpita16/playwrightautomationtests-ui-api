@@ -2,8 +2,8 @@ import { test, expect } from "@playwright/test";
 import { LoginPage } from "../../pages/loginpage";
 import { TransferFundsPage } from "../../pages/transferfunds";
 import userDataJson from "../../utils/userData.json";
-import checkingAccountJson from "../../utils/checkingAccount.json";
-import savingsAccountJson from "../../utils/savingsAccount.json";
+import checkingAccount from "../../utils/checkingAccount.json";
+import savingsAccount from "../../utils/savingsAccount.json";
 
 test.describe("Parabank Transfer Funds Tests", () => {
     
@@ -32,13 +32,13 @@ test.describe("Parabank Transfer Funds Tests", () => {
 
     test("Transfer $10 from Savings to Checking", async () => {
         await transferFundsPage.navigateToTransferFunds();
-        await transferFundsPage.transferFunds("10", savingsAccountJson.accountNumber, checkingAccountJson.accountNumber);
+        await transferFundsPage.transferFunds("10", savingsAccount.accountNumber, checkingAccount.accountNumber);
         await transferFundsPage.validateTransferSuccess();
     });
 
     test("Transfer $25 from Savings to Checking", async () => {
         await transferFundsPage.navigateToTransferFunds();
-        await transferFundsPage.transferFunds("25", savingsAccountJson.accountNumber, checkingAccountJson.accountNumber);
+        await transferFundsPage.transferFunds("25", savingsAccount.accountNumber, checkingAccount.accountNumber);
         await transferFundsPage.validateTransferSuccess();
     });
 

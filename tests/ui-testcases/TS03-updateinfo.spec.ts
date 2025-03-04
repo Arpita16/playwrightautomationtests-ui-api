@@ -1,7 +1,7 @@
 import { test} from '@playwright/test';
 import { LoginPage } from '../../pages/loginpage';
 import { RegistrationPage } from '../../pages/registrationpage';
-import userDataJson from "../../utils/userData.json"
+import userData from "../../utils/userData.json"
 
 import { UpdateContactInfoPage } from '../../pages/updatecontactinfo';
 
@@ -26,7 +26,7 @@ test.describe('User login and Profile Update', () => {
         await loginPage.navigateToLoginPage();
 
     
-        await loginPage.login(userDataJson);
+        await loginPage.login(userData);
 
    
         await updateContactInfoPage.gotoUpdateProfile();    

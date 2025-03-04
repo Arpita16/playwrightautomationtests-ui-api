@@ -2,7 +2,7 @@ import { test } from "@playwright/test";
 import { RegistrationPage } from "../../pages/registrationpage";
 
 
-import userDataJson from "../../utils/userData.json"
+import userData from "../../utils/userData.json"
 
 let page: any;
 let context:any;
@@ -27,7 +27,7 @@ test('should register a new user', async () => {
          await registrationPage.goto();
          
          
-         await registrationPage.fillRegisterForm(userDataJson);
+         await registrationPage.fillRegisterForm(userData);
         
          await registrationPage.submitForm();
 
