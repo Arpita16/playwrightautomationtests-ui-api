@@ -8,10 +8,11 @@ test.describe("Parabank Account Tests", () => {
     let loginPage: LoginPage;
     let openAccountPage: OpenAccountPage;
     let page:any;
+    let context:any;
    
 
     test.beforeAll(async ({ browser }) => {
-        const context = await browser.newContext();
+        context = await browser.newContext();
         page = await context.newPage();
     });
     test.beforeEach(async () => {
@@ -37,5 +38,6 @@ test.describe("Parabank Account Tests", () => {
 
       test.afterAll(async () => {
          await page.close();
+         await context.close();
       });
 });

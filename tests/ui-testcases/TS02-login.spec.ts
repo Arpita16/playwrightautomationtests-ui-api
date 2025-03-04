@@ -7,11 +7,12 @@ import { AccountsOverviewPage } from '../../pages/accountsoverview';
 
 test.describe('User Login', () => {
     let page: any;
+    let context:any;
     let loginPage: LoginPage;
     let accountOverviewPage:AccountsOverviewPage;
 
     test.beforeAll(async ({ browser }) => {
-        const context = await browser.newContext();
+        context = await browser.newContext();
         page = await context.newPage();
         loginPage = new LoginPage(page);
         accountOverviewPage =new AccountsOverviewPage(page);
@@ -32,5 +33,8 @@ test.describe('User Login', () => {
     
         test.afterAll(async () => {
         await page.close();
+        await context.close();
+        
+        
         });
     });

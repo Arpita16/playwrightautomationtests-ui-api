@@ -7,12 +7,13 @@ import savingsAccountJson from "../../utils/savingsAccount.json"
 
 test.describe("Parabank Account Validation", () => {
     let page: any;
+    let context:any;
     let loginPage: LoginPage;
     let accountsOverviewPage: AccountsOverviewPage;
   
 
     test.beforeAll(async ({ browser }) => {
-        const context = await browser.newContext();
+        context = await browser.newContext();
         page = await context.newPage();
     });
     test.beforeEach(async () => {
@@ -33,5 +34,6 @@ test.describe("Parabank Account Validation", () => {
 
     test.afterEach(async () => {
         await page.close();
+        await context.close();
     });
 });

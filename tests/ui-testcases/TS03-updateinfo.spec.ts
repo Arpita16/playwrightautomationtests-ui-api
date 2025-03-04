@@ -7,12 +7,13 @@ import { UpdateContactInfoPage } from '../../pages/updatecontactinfo';
 
 test.describe('User login and Profile Update', () => {
     let page: any;
+    let context:any;
     let loginPage:LoginPage;
     let updateContactInfoPage: UpdateContactInfoPage;
     let registration:RegistrationPage
 
     test.beforeAll(async ({ browser }) => {
-        const context = await browser.newContext();
+        context = await browser.newContext();
         page = await context.newPage();
         
         loginPage = new LoginPage(page);
@@ -39,5 +40,6 @@ test.describe('User login and Profile Update', () => {
     test.afterAll(async () => {
        
         await page.close();
+        await context.close();
     });
 });
