@@ -80,11 +80,7 @@ test.describe('Login API - Comprehensive Validations', () => {
   });
 
  
-
-  
-
-
-  test('📦 Content-Type should be application/json', async () => {
+test('Content-Type should be application/json', async () => {
     const response = await apiContext.post(BASE_URL, {
       data: { email: 'eve.holt@reqres.in', password: 'cityslicka' },
     });

@@ -30,6 +30,7 @@ export default defineConfig({
     viewport:{width:1920,height:1080},
     launchOptions:{
       slowMo:1000,
+    headless:true
       
     },
     /* Base URL to use in actions like `await page.goto('/')`. */
