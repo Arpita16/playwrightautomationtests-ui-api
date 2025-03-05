@@ -15,8 +15,8 @@ export class TransferFundsPage {
 
     async transferFunds(amount: string, fromAccount: string, toAccount: string) {
         await this.page.fill("#amount", amount);
-        await this.page.selectOption("#fromAccountId", {value:fromAccount});
-        await this.page.selectOption("#toAccountId", {value:toAccount});
+        await this.page.selectOption("#fromAccountId", fromAccount);
+        await this.page.selectOption("#toAccountId", toAccount);
         await this.page.getByRole('button',{name:'Transfer'}).click();
     }
 
